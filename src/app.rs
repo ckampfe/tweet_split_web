@@ -20,7 +20,7 @@ impl Component for App {
 
     fn create(_: Self::Properties, link: ComponentLink<Self>) -> Self {
         let input = TRAITOROUS_EIGHT.to_string();
-        let tweet_size = 280;
+        let tweet_size = 140;
         let tweets = tweet_split::split_text(&input, tweet_size);
 
         App {
