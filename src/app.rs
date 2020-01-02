@@ -19,10 +19,14 @@ impl Component for App {
     type Properties = ();
 
     fn create(_: Self::Properties, link: ComponentLink<Self>) -> Self {
+        let input = TRAITOROUS_EIGHT.to_string();
+        let tweet_size = 280;
+        let tweets = tweet_split::split_text(&input, tweet_size);
+
         App {
-            input: "".to_string(),
-            tweets: Ok(vec![]),
-            tweet_size: 280,
+            input,
+            tweets,
+            tweet_size,
             error_message: None,
             link,
         }
@@ -138,3 +142,5 @@ impl Component for App {
         }
     }
 }
+
+const TRAITOROUS_EIGHT: &str = "The traitorous eight was a group of eight employees who left Shockley Semiconductor Laboratory in 1957 to found Fairchild Semiconductor. William Shockley had in 1956 recruited a group of young PhD graduates with the goal to develop and produce new semiconductor devices. While Shockley had received a Nobel Prize in Physics and was an experienced researcher and teacher, his management of the group was authoritarian and unpopular. This was accentuated by Shockley's research focus not proving fruitful. After the demand for Shockley to be replaced was rebuffed, the eight left to form their own company.";
