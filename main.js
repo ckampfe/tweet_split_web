@@ -1,6 +1,6 @@
-import init, { run_app } from './pkg/yew_wasm_pack_minimal.js';
+import init, { run_app } from './pkg/tweet_split_web.js';
 async function main() {
-   await init('/pkg/yew_wasm_pack_minimal_bg.wasm');
+   await init('/pkg/tweet_split_web_bg.wasm');
    run_app();
 }
 main()
